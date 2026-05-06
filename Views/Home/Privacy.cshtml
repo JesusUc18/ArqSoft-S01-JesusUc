@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Políticas de Privacidad";
+}
+
+<style>
+    .privacy-header {
+        border-left: 4px solid #6366f1;
+        padding-left: 16px;
+        margin-bottom: 32px;
+    }
+
+        .privacy-header h1 {
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .privacy-header p {
+            color: #6b7280;
+            font-size: .93rem;
+            margin: 0;
+        }
+
+    .privacy-section {
+        margin-bottom: 32px;
+    }
+
+        .privacy-section h5 {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .privacy-section p, .privacy-section li {
+            color: #4b5563;
+            font-size: .94rem;
+            line-height: 1.7;
+        }
+
+        .privacy-section ul {
+            padding-left: 20px;
+        }
+
+    .privacy-badge {
+        display: inline-block;
+        background: #ede9fe;
+        color: #6366f1;
+        border-radius: 6px;
+        padding: 2px 10px;
+        font-size: .8rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    .privacy-box {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 20px 24px;
+        font-size: .9rem;
+        color: #6b7280;
+    }
+</style>
+
+<!-- Encabezado -->
+<div class="privacy-header">
+    <span class="privacy-badge">Última actualización: mayo 2026</span>
+    <h1>@ViewData["Title"]</h1>
+    <p>Aquí explicamos qué información recopilamos, cómo la usamos y cómo la protegemos.</p>
+</div>
+
+<hr class="mb-4" />
+
+<!-- Secciones -->
+<div class="privacy-section">
+    <h5>1. ¿Qué información recopilamos?</h5>
+    <p>Al usar <strong>MiProyecto</strong>, podemos recopilar los siguientes datos:</p>
+    <ul>
+        <li>Nombre de usuario y correo electrónico al registrarte.</li>
+        <li>Información de los videojuegos que agregas a tu colección (título, género, consola, año, descripción).</li>
+        <li>Datos de sesión para mantenerte autenticado mientras navegas.</li>
+    </ul>
+</div>
+
+<div class="privacy-section">
+    <h5>2. ¿Para qué usamos tu información?</h5>
+    <p>Los datos que recopilamos se usan exclusivamente para:</p>
+    <ul>
+        <li>Permitirte gestionar tu catálogo personal de videojuegos.</li>
+        <li>Asociar tu colección a tu cuenta de usuario.</li>
+        <li>Mejorar la experiencia de uso del sitio.</li>
+    </ul>
+    <p><strong>No vendemos ni compartimos tu información con terceros.</strong></p>
+</div>
+
+<div class="privacy-section">
+    <h5>3. Cookies y sesiones</h5>
+    <p>
+        Este sitio utiliza cookies de sesión necesarias para el funcionamiento del sistema de autenticación.
+        No utilizamos cookies de rastreo ni publicidad. Puedes deshabilitar las cookies desde tu navegador,
+        aunque esto puede afectar el funcionamiento del sitio.
+    </p>
+</div>
+
+<div class="privacy-section">
+    <h5>4. Seguridad de tus datos</h5>
+    <p>
+        Utilizamos las medidas de seguridad estándar de ASP.NET Core Identity para proteger tu contraseña
+        (hashing con salt). Tu información se almacena en una base de datos local y no es accesible públicamente.
+    </p>
+</div>
+
+<div class="privacy-section">
+    <h5>5. Tus derechos</h5>
+    <p>Como usuario tienes derecho a:</p>
+    <ul>
+        <li>Acceder a los datos asociados a tu cuenta.</li>
+        <li>Eliminar tu cuenta y toda la información relacionada.</li>
+        <li>Solicitar correcciones sobre datos incorrectos.</li>
+    </ul>
+</div>
+
+<div class="privacy-section">
+    <h5>6. Cambios en esta política</h5>
+    <p>
+        Esta política puede actualizarse ocasionalmente. Cualquier cambio importante será notificado
+        en esta misma página con la fecha de última actualización.
+    </p>
+</div>
+
+<hr class="mb-4" />
+
+<!-- Nota al pie -->
+<div class="privacy-box">
+    🎮 <strong>MiProyecto</strong> es un proyecto académico desarrollado como parte de una tarea universitaria.
+    Los datos recopilados no tienen uso comercial y son tratados con fines exclusivamente educativos.
+</div>

@@ -1,0 +1,145 @@
+﻿@model List<MiProyecto.Models.Videojuego>
+
+@{
+    ViewData["Title"] = "Mis Videojuegos";
+}
+
+<style>
+    .page-header {
+        border-left: 4px solid #6366f1;
+        padding-left: 16px;
+        margin-bottom: 28px;
+    }
+    .page-header h1 {
+        font-weight: 800;
+        margin-bottom: 2px;
+    }
+    .page-header p {
+        color: #6b7280;
+        font-size: .93rem;
+        margin: 0;
+    }
+
+    /* Filtros */
+    .filtro-link {
+        display: inline-block;
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        border-radius: 99px;
+        padding: 4px 14px;
+        font-size: .85rem;
+        font-weight: 500;
+        color: #374151;
+        text-decoration: none;
+        margin: 3px;
+        transition: background .15s, color .15s, border-color .15s;
+    }
+    .filtro-link:hover, .filtro-link.activo {
+        background: #6366f1;
+        color: #fff;
+        border-color: #6366f1;
+    }
+
+    /* Cards de juegos */
+    .juego-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 16px 20px;
+        background: #fff;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow .2s, transform .2s;
+        margin-bottom: 12px;
+    }
+    .juego-card:hover {
+        box-shadow: 0 6px 20px rgba(0,0,0,.08);
+        transform: translateY(-2px);
+        color: inherit;
+    }
+    .juego-card .juego-icon {
+        font-size: 1.6rem;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        background: #ede9fe;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .juego-card .juego-titulo {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #111;
+        margin-bottom: 2px;
+    }
+    .juego-card .juego-meta {
+        font-size: .83rem;
+        color: #6b7280;
+    }
+    .juego-card .juego-arrow {
+        margin-left: auto;
+        color: #d1d5db;
+        font-size: 1.1rem;
+    }
+
+    /* Botón agregar */
+    .btn-agregar {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #6366f1;
+        color: #fff;
+        border-radius: 8px;
+        padding: 10px 24px;
+        font-weight: 600;
+        font-size: .95rem;
+        text-decoration: none;
+        transition: background .2s;
+    }
+    .btn-agregar:hover { background: #4f46e5; color: #fff; }
+</style>
+
+<!-- Encabezado -->
+<div class="page-header">
+    <h1>Mis Videojuegos</h1>
+    <p>Tu colección personal de juegos.</p>
+</div>
+
+<!-- Filtros -->
+<div class="mb-4">
+    <a asp-action="Index" class="filtro-link">Todos</a>
+    @foreach (var gen in ViewBag.Generos as List<string>)
+    {
+        <a asp-action="Index" asp-route-genero="@gen" class="filtro-link">@gen</a>
+    }
+</div>
+
+<!-- Lista -->
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <div style="font-size:3rem">🎮</div>
+        <p class="mt-2">Aún no hay juegos en esta categoría.</p>
+    </div>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <a asp-action="Detalle" asp-route-id="@item.Id" class="juego-card">
+            <div class="juego-icon">🎮</div>
+            <div>
+                <div class="juego-titulo">@item.Titulo</div>
+                <div class="juego-meta">@item.Genero &nbsp;·&nbsp; @item.Ano</div>
+            </div>
+            <span class="juego-arrow">›</span>
+        </a>
+    }
+}
+
+<hr class="my-4" />
+<a asp-action="Agregar" class="btn-agregar">+ Agregar Videojuego</a>

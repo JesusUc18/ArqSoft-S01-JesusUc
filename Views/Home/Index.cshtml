@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    /* Hero */
+    .hero {
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        color: #fff;
+        border-radius: 12px;
+        padding: 64px 40px;
+        text-align: center;
+        margin-bottom: 48px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 70% 30%, rgba(99,102,241,.35) 0%, transparent 60%),
+                    radial-gradient(ellipse at 20% 80%, rgba(236,72,153,.2) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+    }
+    .hero p {
+        font-size: 1.15rem;
+        color: rgba(255,255,255,.75);
+        max-width: 520px;
+        margin: 0 auto 28px;
+    }
+    .hero .btn-hero {
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background .2s;
+    }
+    .hero .btn-hero:hover { background: #4f46e5; color: #fff; }
+
+    /* Feature cards */
+    .feature-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 28px 24px;
+        height: 100%;
+        transition: box-shadow .2s, transform .2s;
+        background: #fff;
+    }
+    .feature-card:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,.09);
+        transform: translateY(-3px);
+    }
+    .feature-card .icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+    .feature-card h5 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .feature-card p {
+        color: #6b7280;
+        font-size: .92rem;
+        margin: 0;
+    }
+
+    /* Géneros */
+    .genero-badge {
+        display: inline-block;
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        border-radius: 99px;
+        padding: 6px 16px;
+        font-size: .88rem;
+        font-weight: 500;
+        color: #374151;
+        margin: 4px;
+        text-decoration: none;
+        transition: background .15s, color .15s;
+    }
+    .genero-badge:hover {
+        background: #6366f1;
+        color: #fff;
+        border-color: #6366f1;
+    }
+
+    /* CTA final */
+    .cta-box {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 36px;
+        text-align: center;
+    }
+</style>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>🎮 Mi Catálogo</h1>
+    <p>Organiza, descubre y lleva el registro de todos tus videojuegos favoritos en un solo lugar.</p>
+    <a asp-controller="Videojuego" asp-action="Index" class="btn-hero">Ver mi colección</a>
+</div>
+
+<!-- FEATURES -->
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="feature-card">
+            <div class="icon">📋</div>
+            <h5>Organiza tu colección</h5>
+            <p>Agrega tus juegos con título, género, consola, año y descripción. Todo en un solo lugar.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-card">
+            <div class="icon">🔍</div>
+            <h5>Filtra por género</h5>
+            <p>Navega rápido entre Hack and Slash, Metroidvania, RPG y cualquier género que agregues.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-card">
+            <div class="icon">🕹️</div>
+            <h5>Multi-consola</h5>
+            <p>Desde PS1 hasta PC, registra juegos de cualquier plataforma sin límites.</p>
+        </div>
+    </div>
+</div>
+
+<!-- GÉNEROS POPULARES -->
+<div class="mb-5">
+    <h4 class="fw-bold mb-3">Géneros populares</h4>
+    <div>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Hack and Slash" class="genero-badge">Hack and Slash</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Metroidvania" class="genero-badge">Metroidvania</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="RPG" class="genero-badge">RPG</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Plataformas" class="genero-badge">Plataformas</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Acción" class="genero-badge">Acción</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Aventura" class="genero-badge">Aventura</a>
+    </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-box mb-4">
+    <h5 class="fw-bold mb-2">¿Falta algún juego?</h5>
+    <p class="text-muted mb-3">Agrega todos los títulos que quieras a tu colección personal.</p>
+    <a asp-controller="Videojuego" asp-action="Agregar" class="btn btn-primary px-4">+ Agregar videojuego</a>
+</div>

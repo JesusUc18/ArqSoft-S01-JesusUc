@@ -1,0 +1,88 @@
+﻿@model MiProyecto.Models.Videojuego
+
+@{
+    ViewData["Title"] = Model.Titulo;
+}
+
+<style>
+    .page-header {
+        border-left: 4px solid #6366f1;
+        padding-left: 16px;
+        margin-bottom: 28px;
+    }
+    .page-header h1 { font-weight: 800; margin-bottom: 2px; }
+    .page-header p { color: #6b7280; font-size: .93rem; margin: 0; }
+
+    .detalle-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        padding: 28px 32px;
+        margin-bottom: 24px;
+    }
+    .detalle-row {
+        display: flex;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: .95rem;
+    }
+    .detalle-row:last-child { border-bottom: none; }
+    .detalle-label {
+        width: 110px;
+        flex-shrink: 0;
+        font-weight: 600;
+        color: #6b7280;
+        font-size: .85rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        padding-top: 2px;
+    }
+    .detalle-valor { color: #111; line-height: 1.6; }
+
+    .badge-genero {
+        display: inline-block;
+        background: #ede9fe;
+        color: #6366f1;
+        border-radius: 99px;
+        padding: 3px 12px;
+        font-size: .82rem;
+        font-weight: 600;
+    }
+
+    .btn-volver {
+        color: #6366f1;
+        text-decoration: none;
+        font-size: .93rem;
+        font-weight: 500;
+    }
+    .btn-volver:hover { color: #4f46e5; text-decoration: underline; }
+</style>
+
+<!-- Encabezado -->
+<div class="page-header">
+    <h1>@Model.Titulo</h1>
+    <p>@Model.Consola &nbsp;·&nbsp; @Model.Ano</p>
+</div>
+
+<!-- Card de detalle -->
+<div class="detalle-card">
+    <div class="detalle-row">
+        <span class="detalle-label">Género</span>
+        <span class="detalle-valor"><span class="badge-genero">@Model.Genero</span></span>
+    </div>
+    <div class="detalle-row">
+        <span class="detalle-label">Consola</span>
+        <span class="detalle-valor">@Model.Consola</span>
+    </div>
+    <div class="detalle-row">
+        <span class="detalle-label">Año</span>
+        <span class="detalle-valor">@Model.Ano</span>
+    </div>
+    <div class="detalle-row">
+        <span class="detalle-label">Descripción</span>
+        <span class="detalle-valor">@Model.Descripcion</span>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn-volver">&larr; Volver a mis videojuegos</a>
