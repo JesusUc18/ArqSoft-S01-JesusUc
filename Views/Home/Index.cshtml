@@ -8,7 +8,7 @@
         background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
         color: #fff;
         border-radius: 12px;
-        padding: 64px 40px;
+        padding: 72px 40px;
         text-align: center;
         margin-bottom: 48px;
         position: relative;
@@ -23,29 +23,84 @@
         pointer-events: none;
     }
     .hero h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
         font-weight: 800;
         letter-spacing: -1px;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
     }
     .hero p {
         font-size: 1.15rem;
         color: rgba(255,255,255,.75);
         max-width: 520px;
-        margin: 0 auto 28px;
+        margin: 0 auto 32px;
+        line-height: 1.6;
     }
-    .hero .btn-hero {
+    .hero-btns {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .btn-hero-primary {
         background: #6366f1;
         color: #fff;
         border: none;
-        padding: 12px 32px;
+        padding: 12px 28px;
         border-radius: 8px;
-        font-size: 1rem;
+        font-size: .97rem;
         font-weight: 600;
         text-decoration: none;
         transition: background .2s;
     }
-    .hero .btn-hero:hover { background: #4f46e5; color: #fff; }
+    .btn-hero-primary:hover { background: #4f46e5; color: #fff; }
+    .btn-hero-outline {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid rgba(255,255,255,.45);
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-size: .97rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: border-color .2s, background .2s;
+    }
+    .btn-hero-outline:hover {
+        border-color: #fff;
+        background: rgba(255,255,255,.08);
+        color: #fff;
+    }
+
+    /* Stats strip */
+    .stats-strip {
+        display: flex;
+        gap: 0;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 48px;
+    }
+    .stat-item {
+        flex: 1;
+        text-align: center;
+        padding: 20px 16px;
+        border-right: 1px solid #e5e7eb;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: #6366f1;
+        line-height: 1;
+        margin-bottom: 4px;
+    }
+    .stat-label {
+        font-size: .8rem;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        font-weight: 500;
+    }
 
     /* Feature cards */
     .feature-card {
@@ -64,13 +119,67 @@
         font-size: 2rem;
         margin-bottom: 12px;
     }
-    .feature-card h5 {
+    .feature-card h5 { font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { color: #6b7280; font-size: .92rem; margin: 0; }
+
+    /* Juegos destacados */
+    .section-title {
+        font-weight: 800;
+        font-size: 1.25rem;
+        margin-bottom: 4px;
+    }
+    .section-sub {
+        color: #6b7280;
+        font-size: .88rem;
+        margin-bottom: 20px;
+    }
+    .juego-highlight {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        padding: 20px;
+        height: 100%;
+        transition: box-shadow .2s, transform .2s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .juego-highlight:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,.09);
+        transform: translateY(-3px);
+        color: inherit;
+    }
+    .juego-highlight .jh-icon {
+        font-size: 2.4rem;
+        background: #ede9fe;
+        border-radius: 10px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+    .juego-highlight .jh-titulo {
         font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 4px;
+        color: #111;
+    }
+    .juego-highlight .jh-badge {
+        display: inline-block;
+        background: #ede9fe;
+        color: #6366f1;
+        border-radius: 99px;
+        padding: 2px 10px;
+        font-size: .75rem;
+        font-weight: 600;
         margin-bottom: 8px;
     }
-    .feature-card p {
+    .juego-highlight .jh-desc {
+        font-size: .83rem;
         color: #6b7280;
-        font-size: .92rem;
+        line-height: 1.5;
         margin: 0;
     }
 
@@ -86,7 +195,7 @@
         color: #374151;
         margin: 4px;
         text-decoration: none;
-        transition: background .15s, color .15s;
+        transition: background .15s, color .15s, border-color .15s;
     }
     .genero-badge:hover {
         background: #6366f1;
@@ -96,19 +205,68 @@
 
     /* CTA final */
     .cta-box {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        padding: 36px;
+        background: linear-gradient(135deg, #0f0c29, #302b63);
+        border-radius: 12px;
+        padding: 44px 40px;
         text-align: center;
+        color: #fff;
     }
+    .cta-box h4 { font-weight: 800; margin-bottom: 8px; }
+    .cta-box p { color: rgba(255,255,255,.7); margin-bottom: 24px; font-size: .95rem; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-primary {
+        background: #6366f1;
+        color: #fff;
+        border-radius: 8px;
+        padding: 10px 26px;
+        font-weight: 600;
+        font-size: .93rem;
+        text-decoration: none;
+        transition: background .2s;
+    }
+    .btn-cta-primary:hover { background: #4f46e5; color: #fff; }
+    .btn-cta-outline {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid rgba(255,255,255,.4);
+        border-radius: 8px;
+        padding: 10px 26px;
+        font-weight: 600;
+        font-size: .93rem;
+        text-decoration: none;
+        transition: border-color .2s;
+    }
+    .btn-cta-outline:hover { border-color: #fff; color: #fff; }
 </style>
 
 <!-- HERO -->
 <div class="hero">
     <h1>🎮 Mi Catálogo</h1>
     <p>Organiza, descubre y lleva el registro de todos tus videojuegos favoritos en un solo lugar.</p>
-    <a asp-controller="Videojuego" asp-action="Index" class="btn-hero">Ver mi colección</a>
+    <div class="hero-btns">
+        <a asp-controller="Videojuego" asp-action="Index" class="btn-hero-primary">Ver mi colección</a>
+        <a asp-controller="Videojuego" asp-action="Agregar" class="btn-hero-outline">+ Agregar juego</a>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip mb-5">
+    <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Juegos</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">🎯</div>
+        <div class="stat-label">Géneros</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">🕹️</div>
+        <div class="stat-label">Consolas</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Tuyo</div>
+    </div>
 </div>
 
 <!-- FEATURES -->
@@ -136,22 +294,83 @@
     </div>
 </div>
 
+<!-- JUEGOS DESTACADOS -->
+<div class="mb-5">
+    <p class="section-title">Algunos juegos de la colección</p>
+    <p class="section-sub">Echa un vistazo a lo que ya hay guardado.</p>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="1" class="juego-highlight">
+                <div class="jh-icon">🚗</div>
+                <div class="jh-titulo">GTA: San Andreas</div>
+                <span class="jh-badge">Acción / Mundo Abierto</span>
+                <p class="jh-desc">Sigue la historia de CJ en una ciudad llena de misiones, crimen y libertad total.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="7" class="juego-highlight">
+                <div class="jh-icon">⚡</div>
+                <div class="jh-titulo">God of War</div>
+                <span class="jh-badge">Acción / Aventura</span>
+                <p class="jh-desc">Kratos lucha contra dioses y criaturas mitológicas en una historia épica de venganza.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="2" class="juego-highlight">
+                <div class="jh-icon">🧱</div>
+                <div class="jh-titulo">Minecraft</div>
+                <span class="jh-badge">Sandbox / Supervivencia</span>
+                <p class="jh-desc">Construye, explora y sobrevive en un mundo infinito hecho de bloques.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="3" class="juego-highlight">
+                <div class="jh-icon">🔫</div>
+                <div class="jh-titulo">CoD: Modern Warfare 2</div>
+                <span class="jh-badge">Shooter / Guerra</span>
+                <p class="jh-desc">Campaña intensa y el multijugador más famoso de su generación.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="5" class="juego-highlight">
+                <div class="jh-icon">🍄</div>
+                <div class="jh-titulo">Super Mario Bros.</div>
+                <span class="jh-badge">Plataformas</span>
+                <p class="jh-desc">El clásico de Nintendo que lo inició todo. Niveles, saltos y el rescate de la princesa.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Videojuego" asp-action="Detalle" asp-route-id="6" class="juego-highlight">
+                <div class="jh-icon">🪂</div>
+                <div class="jh-titulo">Fortnite</div>
+                <span class="jh-badge">Battle Royale</span>
+                <p class="jh-desc">100 jugadores, una isla, construcción y disparos. Solo uno sobrevive.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
 <!-- GÉNEROS POPULARES -->
 <div class="mb-5">
-    <h4 class="fw-bold mb-3">Géneros populares</h4>
+    <p class="section-title">Explorar por género</p>
+    <p class="section-sub">Filtra tu colección directamente desde aquí.</p>
     <div>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Hack and Slash" class="genero-badge">Hack and Slash</a>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Metroidvania" class="genero-badge">Metroidvania</a>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="RPG" class="genero-badge">RPG</a>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Plataformas" class="genero-badge">Plataformas</a>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Acción" class="genero-badge">Acción</a>
-        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Aventura" class="genero-badge">Aventura</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Acción / Mundo Abierto" class="genero-badge">🚗 Acción / Mundo Abierto</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Sandbox / Supervivencia" class="genero-badge">🧱 Sandbox</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Shooter / Guerra" class="genero-badge">🔫 Shooter</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Deportes / Fútbol" class="genero-badge">⚽ Deportes</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Plataformas" class="genero-badge">🍄 Plataformas</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Battle Royale" class="genero-badge">🪂 Battle Royale</a>
+        <a asp-controller="Videojuego" asp-action="Index" asp-route-genero="Acción / Aventura" class="genero-badge">⚡ Acción / Aventura</a>
     </div>
 </div>
 
 <!-- CTA FINAL -->
 <div class="cta-box mb-4">
-    <h5 class="fw-bold mb-2">¿Falta algún juego?</h5>
-    <p class="text-muted mb-3">Agrega todos los títulos que quieras a tu colección personal.</p>
-    <a asp-controller="Videojuego" asp-action="Agregar" class="btn btn-primary px-4">+ Agregar videojuego</a>
+    <h4>¿Listo para armar tu colección?</h4>
+    <p>Agrega todos los títulos que quieras y tenlos siempre organizados.</p>
+    <div class="cta-btns">
+        <a asp-controller="Videojuego" asp-action="Agregar" class="btn-cta-primary">+ Agregar videojuego</a>
+        <a asp-controller="Videojuego" asp-action="Index" class="btn-cta-outline">Ver colección</a>
+    </div>
 </div>
