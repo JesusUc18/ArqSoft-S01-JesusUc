@@ -41,7 +41,24 @@ La aplicación está estructurada bajo el patrón **Modelo-Vista-Controlador (MV
 ## 📁 Estructura del proyecto
 
 ```
-Void
+
+ArqSoft-S01-JesusUc/
+├─ Areas/
+│ └─ Identity/ # Administración de cuentas/usuarios
+├─ Controllers/
+│ └─ *.cs # Lógica de ruta y acciones
+├─ Data/
+│ └─ *.cs # Contexto y acceso a datos
+├─ Models/
+│ └─ *.cs # Entidades del dominio (Videojuegos, etc.)
+├─ Properties/
+├─ Views/
+│ └─ *.cshtml # Frontend / vistas de navegación
+├─ wwwroot/ # Recursos públicos (CSS, JS, imágenes)
+├─ Program.cs
+├─ MiProyecto.slnx
+└─ appsettings.json
+
 ```
 
 
