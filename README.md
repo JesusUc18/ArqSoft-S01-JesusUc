@@ -49,10 +49,23 @@ Void
 
 ## 🎨 Tecnologías utilizadas
 
+- **.NET 6 / .NET Core MVC**
+- **C#**
+- **HTML + CSS**
+- **Razor Views (CSHTML)**
+- **MVC Pattern (Model-View-Controller)**
+- **Visual Studio / .NET CLI**
 
 ---
 
 # 📚 Archivos principales
+
+- **Program.cs** – Configuración principal y arranque del servidor.
+- **Controllers/** – Gestión de rutas y acciones del catálogo.
+- **Models/** – Clases que representan los videojuegos y otras entidades.
+- **Views/** – Archivos visuales que el usuario ve en el navegador.
+- **Data/** – Lugar para la lógica de conexión y acceso a datos.
+- **appsettings.json** – Configuración general de la aplicación.
 
 ---
 
